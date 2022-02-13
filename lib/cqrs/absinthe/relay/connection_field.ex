@@ -67,7 +67,7 @@ defmodule Cqrs.Absinthe.Relay.ConnectionField do
 
         context
         |> Context.put_pipeline(:absinthe_resolve, return_value)
-        |> Context.ship()
+        |> Context.Shipper.ship()
 
         return_value
 
@@ -90,14 +90,14 @@ defmodule Cqrs.Absinthe.Relay.ConnectionField do
 
             context
             |> Context.put_pipeline(:absinthe_resolve, results)
-            |> Context.ship()
+            |> Context.Shipper.ship()
 
             {:ok, results}
 
           {:error, error} ->
             context
             |> Context.put_pipeline(:absinthe_resolve, {:error, error})
-            |> Context.ship()
+            |> Context.Shipper.ship()
 
             {:error, error}
         end

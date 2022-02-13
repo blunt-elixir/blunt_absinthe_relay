@@ -1,6 +1,7 @@
 # Used by "mix format"
 locals_without_parens = [
-  derive_connection: 3
+  derive_connection: 3,
+  define_connection: 2
 ]
 
 [

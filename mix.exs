@@ -31,8 +31,11 @@ defmodule CqrsToolsAbsintheRelay.MixProject do
     [
       {:absinthe, "~> 1.7"},
       {:absinthe_relay, github: "absinthe-graphql/absinthe_relay", ref: "d254162a2b7f5b23e6afa186da0f1879f6c484d0"},
-      {:cqrs_tools, path: "../cqrs_tools"},
-      {:cqrs_tools_absinthe, path: "../cqrs_tools_absinthe"},
+      # {:cqrs_tools, path: "../cqrs_tools"},
+      # {:cqrs_tools_absinthe, path: "../cqrs_tools_absinthe"},
+
+      {:cqrs_tools, github: "elixir-cqrs/cqrs_tools"},
+      {:cqrs_tools_absinthe, github: "elixir-cqrs/cqrs_tools_absinthe"},
       #
       # test and dev deps
       {:etso, "~> 0.1.6", only: [:test]},
