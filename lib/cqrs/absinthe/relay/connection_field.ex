@@ -19,7 +19,7 @@ defmodule Cqrs.Absinthe.Relay.ConnectionField do
       |> Keyword.put(:message_module, query_module)
 
     args = Field.args(query_module, opts)
-    description = Field.description(query_module, opts)
+    description = Field.description(query_module)
     {before_resolve, after_resolve} = Field.middleware(opts)
 
     quote do
@@ -32,10 +32,10 @@ defmodule Cqrs.Absinthe.Relay.ConnectionField do
         resolve(fn parent, args, resolution ->
           ConnectionField.dispatch_and_resolve(
             unquote(query_module),
-            Keyword.put(unquote(opts), :repo, unquote(repo)),
+            unquote(opts),
             parent,
             args,
-            resolution
+            unquote(repo)
           )
         end)
 
@@ -47,11 +47,11 @@ defmodule Cqrs.Absinthe.Relay.ConnectionField do
   @type resolution :: Absinthe.Resolution.t()
   @spec dispatch_and_resolve(atom, keyword, map, map, resolution) :: {:error, list} | {:ok, any}
 
-  def dispatch_and_resolve(query_module, query_opts, parent, args, _resolution) do
+  def dispatch_and_resolve(query_module, query_opts, parent, args, repo) do
     opts =
       query_opts
-      |> Keyword.put(:execute, false)
       |> Field.put_dispatch_opts(:absinthe_relay_connection, drop_connection_args(args))
+      |> Keyword.put(:return, :query_context)
 
     results =
       args
@@ -72,7 +72,6 @@ defmodule Cqrs.Absinthe.Relay.ConnectionField do
         return_value
 
       {:ok, %Context{} = context} ->
-        repo = Keyword.fetch!(query_opts, :repo)
         query = Context.get_last_pipeline(context)
 
         repo_fun = fn args ->
