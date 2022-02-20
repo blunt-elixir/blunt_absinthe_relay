@@ -22,6 +22,8 @@ defmodule Cqrs.Absinthe.Relay.ConnectionField do
     description = Field.description(query_module)
     {before_resolve, after_resolve} = Field.middleware(opts)
 
+    Cqrs.Message.Compilation.log(query_module, "regenerated connection query #{field_name}")
+
     quote do
       connection field(unquote(field_name), node_type: unquote(node_type)) do
         unquote_splicing(args)
