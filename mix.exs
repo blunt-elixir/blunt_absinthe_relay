@@ -1,8 +1,11 @@
 defmodule BluntAbsintheRelay.MixProject do
   use Mix.Project
 
+  @version "0.1.0"
+
   def project do
     [
+      version: @version,
       app: :blunt_absinthe_relay,
       version: "0.1.0",
       elixir: "~> 1.13",
@@ -31,16 +34,22 @@ defmodule BluntAbsintheRelay.MixProject do
     [
       {:absinthe, "~> 1.7"},
       {:absinthe_relay, github: "absinthe-graphql/absinthe_relay", ref: "d254162a2b7f5b23e6afa186da0f1879f6c484d0"},
+
+      # Blunt
       # {:blunt, path: "../blunt"},
       # {:blunt_absinthe, path: "../blunt_absinthe"},
+      {:blunt, "~> 0.1"},
+      {:blunt_absinthe, "~> 0.1"},
 
-      {:blunt, github: "blunt-elixir/blunt"},
-      {:blunt_absinthe, github: "blunt-elixir/blunt_absinthe"},
-      #
-      # test and dev deps
+      # For testing
       {:etso, "~> 0.1.6", only: [:test]},
+      {:faker, "~> 0.17.0", optional: true, only: [:test]},
+      {:ex_machina, "~> 2.7", optional: true, only: [:test]},
       {:dialyxir, "~> 1.0", only: [:dev, :test], runtime: false},
-      {:elixir_uuid, "~> 1.6", override: true, hex: :uuid_utils}
+      {:elixir_uuid, "~> 1.6", only: [:dev, :test], override: true, hex: :uuid_utils},
+
+      # generate docs
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
   end
 end
