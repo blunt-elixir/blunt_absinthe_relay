@@ -32,8 +32,8 @@ defmodule BluntAbsintheRelay.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:absinthe, "~> 1.7"},
-      {:absinthe_relay, github: "absinthe-graphql/absinthe_relay", ref: "d254162a2b7f5b23e6afa186da0f1879f6c484d0"},
+      {:absinthe, "~> 1.7", override: true},
+      {:absinthe_relay, "~> 1.5"},
 
       # Blunt
       # {:blunt, path: "../blunt"},
