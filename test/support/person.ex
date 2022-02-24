@@ -1,4 +1,4 @@
-defmodule Cqrs.Absinthe.Relay.Test.Person do
+defmodule Blunt.Absinthe.Relay.Test.Person do
   use Ecto.Schema
 
   @genders [:male, :female, :not_sure]

@@ -1,9 +1,9 @@
-defmodule Cqrs.Absinthe.Relay.Test.SchemaTypes do
-  use Cqrs.{Absinthe, Absinthe.Relay}
+defmodule Blunt.Absinthe.Relay.Test.SchemaTypes do
+  use Blunt.{Absinthe, Absinthe.Relay}
   use Absinthe.Schema.Notation
   use Absinthe.Relay.Schema.Notation, :modern
 
-  alias Cqrs.Absinthe.Relay.Test.ListPeople
+  alias Blunt.Absinthe.Relay.Test.ListPeople
 
   derive_enum :gender, {ListPeople, :gender}
 

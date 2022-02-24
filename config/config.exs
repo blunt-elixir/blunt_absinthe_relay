@@ -1,4 +1,4 @@
 import Config
 
-config :cqrs_tools_absinthe_relay, :repo, Cqrs.Repo
-config :cqrs_tools, :context_shipper, Cqrs.Absinthe.Relay.Test.DispatchContextShipper
+config :blunt_absinthe_relay, :repo, Blunt.Repo
+config :blunt, :context_shipper, Blunt.Absinthe.Relay.Test.DispatchContextShipper

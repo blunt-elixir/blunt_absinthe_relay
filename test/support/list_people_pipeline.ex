@@ -1,7 +1,7 @@
-defmodule Cqrs.Absinthe.Relay.Test.ListPeoplePipeline do
-  use Cqrs.QueryPipeline
+defmodule Blunt.Absinthe.Relay.Test.ListPeoplePipeline do
+  use Blunt.QueryPipeline
 
-  alias Cqrs.Absinthe.Relay.Test.Person
+  alias Blunt.Absinthe.Relay.Test.Person
 
   @impl true
   def create_query(filters, _context) do

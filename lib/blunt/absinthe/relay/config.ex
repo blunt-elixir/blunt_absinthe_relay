@@ -1,8 +1,8 @@
-defmodule Cqrs.Absinthe.Relay.Config do
+defmodule Blunt.Absinthe.Relay.Config do
   @moduledoc false
 
-  alias Cqrs.Behaviour
-  alias Cqrs.Absinthe.Relay.Error
+  alias Blunt.Behaviour
+  alias Blunt.Absinthe.Relay.Error
 
   def get_repo!(opts \\ []) do
     case Keyword.get(opts, :repo) || get(:repo) do
@@ -17,9 +17,9 @@ defmodule Cqrs.Absinthe.Relay.Config do
       You must either supply a repo via an option
       or configure the repo in your config.exs file like so:
 
-      "config :cqrs_tools_absinthe_relay, :repo, MyRepo"
+      "config :blunt_absinthe_relay, :repo, MyRepo"
       """
   end
 
-  defp get(key), do: Application.get_env(:cqrs_tools_absinthe_relay, key)
+  defp get(key), do: Application.get_env(:blunt_absinthe_relay, key)
 end

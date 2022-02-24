@@ -1,14 +1,14 @@
-defmodule Cqrs.Absinthe.Relay.Test.CreatePeople do
-  use Cqrs.Command
-  alias Cqrs.Absinthe.Relay.Test.Person
+defmodule Blunt.Absinthe.Relay.Test.CreatePeople do
+  use Blunt.Command
+  alias Blunt.Absinthe.Relay.Test.Person
 
   field :peeps, {:array, Person}
 end
 
-defmodule Cqrs.Absinthe.Relay.Test.CreatePeoplePipeline do
-  use Cqrs.CommandPipeline
+defmodule Blunt.Absinthe.Relay.Test.CreatePeoplePipeline do
+  use Blunt.CommandPipeline
 
-  alias Cqrs.Repo
+  alias Blunt.Repo
 
   def handle_dispatch(%{peeps: peeps}, _context) do
     Enum.map(peeps, &Repo.insert!/1)

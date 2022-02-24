@@ -1,7 +1,7 @@
-defmodule Cqrs.Absinthe.Relay.ConnectionTest do
+defmodule Blunt.Absinthe.Relay.ConnectionTest do
   use ExUnit.Case, async: false
 
-  alias Cqrs.Absinthe.Relay.Test.{CreatePeople, Schema}
+  alias Blunt.Absinthe.Relay.Test.{CreatePeople, Schema}
 
   setup_all do
     peeps = [

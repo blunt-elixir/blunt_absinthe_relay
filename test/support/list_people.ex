@@ -1,6 +1,6 @@
-defmodule Cqrs.Absinthe.Relay.Test.ListPeople do
-  use Cqrs.Query
-  alias Cqrs.Absinthe.Relay.Test.Person
+defmodule Blunt.Absinthe.Relay.Test.ListPeople do
+  use Blunt.Query
+  alias Blunt.Absinthe.Relay.Test.Person
 
   field :name, :string
   field :gender, :enum, values: Person.genders()

@@ -1,9 +1,9 @@
-defmodule Cqrs.Absinthe.Relay.Connection do
+defmodule Blunt.Absinthe.Relay.Connection do
   @moduledoc false
 
   require Logger
 
-  alias Cqrs.Absinthe.Relay.Connection
+  alias Blunt.Absinthe.Relay.Connection
 
   def generate_total_count_field do
     quote do
@@ -16,7 +16,7 @@ defmodule Cqrs.Absinthe.Relay.Connection do
   end
 
   def resolve_total_count(_connection, _args, _res) do
-    Logger.warn("Requested total_count on a connection that was not created by cqrs_tools.")
+    Logger.warn("Requested total_count on a connection that was not created by blunt.")
     {:ok, nil}
   end
 end

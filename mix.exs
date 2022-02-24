@@ -1,18 +1,18 @@
-defmodule CqrsToolsAbsintheRelay.MixProject do
+defmodule BluntAbsintheRelay.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :cqrs_tools_absinthe_relay,
+      app: :blunt_absinthe_relay,
       version: "0.1.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      source_url: "https://github.com/elixir-cqrs/cqrs_tools_absinthe_relay",
+      source_url: "https://github.com/blunt-elixir/blunt_absinthe_relay",
       package: [
-        description: "Absinthe Relay macros for `cqrs_tools` commands and queries",
+        description: "Absinthe Relay macros for `blunt` commands and queries",
         licenses: ["MIT"],
-        links: %{"GitHub" => "https://github.com/elixir-cqrs/cqrs_tools_absinthe_relay"}
+        links: %{"GitHub" => "https://github.com/blunt-elixir/blunt_absinthe_relay"}
       ],
       elixirc_paths: elixirc_paths(Mix.env())
     ]
@@ -31,11 +31,11 @@ defmodule CqrsToolsAbsintheRelay.MixProject do
     [
       {:absinthe, "~> 1.7"},
       {:absinthe_relay, github: "absinthe-graphql/absinthe_relay", ref: "d254162a2b7f5b23e6afa186da0f1879f6c484d0"},
-      # {:cqrs_tools, path: "../cqrs_tools"},
-      # {:cqrs_tools_absinthe, path: "../cqrs_tools_absinthe"},
+      # {:blunt, path: "../blunt"},
+      # {:blunt_absinthe, path: "../blunt_absinthe"},
 
-      {:cqrs_tools, github: "elixir-cqrs/cqrs_tools"},
-      {:cqrs_tools_absinthe, github: "elixir-cqrs/cqrs_tools_absinthe"},
+      {:blunt, github: "blunt-elixir/blunt"},
+      {:blunt_absinthe, github: "blunt-elixir/blunt_absinthe"},
       #
       # test and dev deps
       {:etso, "~> 0.1.6", only: [:test]},

@@ -1,18 +1,18 @@
-defmodule Cqrs.Absinthe.Relay do
+defmodule Blunt.Absinthe.Relay do
   defmodule Error do
     defexception [:message]
   end
 
-  alias Cqrs.Absinthe.Message
-  alias Cqrs.Absinthe.Relay.{Connection, ConnectionField}
+  alias Blunt.Absinthe.Message
+  alias Blunt.Absinthe.Relay.{Connection, ConnectionField}
 
   defmacro __using__(_opts) do
     quote do
       Module.register_attribute(__MODULE__, :queries, accumulate: true)
 
-      import Cqrs.Absinthe.Relay, only: :macros
+      import Blunt.Absinthe.Relay, only: :macros
 
-      @after_compile Cqrs.Absinthe.Relay
+      @after_compile Blunt.Absinthe.Relay
     end
   end
 

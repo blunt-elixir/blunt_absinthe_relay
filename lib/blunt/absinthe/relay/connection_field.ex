@@ -1,12 +1,12 @@
-defmodule Cqrs.Absinthe.Relay.ConnectionField do
+defmodule Blunt.Absinthe.Relay.ConnectionField do
   @moduledoc false
 
   alias Absinthe.Relay.Connection
 
-  alias Cqrs.Absinthe.Relay.Config
-  alias Cqrs.DispatchContext, as: Context
-  alias Cqrs.Absinthe.{AbsintheErrors, Args, Field, Log}
-  alias Cqrs.Absinthe.Relay.ConnectionField
+  alias Blunt.Absinthe.Relay.Config
+  alias Blunt.DispatchContext, as: Context
+  alias Blunt.Absinthe.{AbsintheErrors, Args, Field, Log}
+  alias Blunt.Absinthe.Relay.ConnectionField
 
   def generate(query_module, node_type, opts) do
     repo = Config.get_repo!()
@@ -22,7 +22,7 @@ defmodule Cqrs.Absinthe.Relay.ConnectionField do
     description = Field.description(query_module)
     {before_resolve, after_resolve} = Field.middleware(opts)
 
-    Cqrs.Message.Compilation.log(query_module, "regenerated connection query #{field_name}")
+    Blunt.Message.Compilation.log(query_module, "regenerated connection query #{field_name}")
 
     quote do
       connection field(unquote(field_name), node_type: unquote(node_type)) do
